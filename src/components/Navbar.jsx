@@ -30,7 +30,7 @@ const Navbar = () => {
                             Nombre usuario
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a className="dropdown-item" href="#">Mi perfil</a></li>
+                            <li><a className="dropdown-item" href="#"><i class="fa-solid fa-user"></i> Mi perfil</a></li>
                             <li><hr className="dropdown-divider"/></li>
                             <li><a className="dropdown-item" href="#" onClick={()=> signOut(auth)} >Cerrar Sesión</a></li>
                         </ul>
