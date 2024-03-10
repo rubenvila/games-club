@@ -1,0 +1,14 @@
+.padre {
+    display: flex;;
+    align-items: center;
+    height: 100%;   
+}
+
+.cajatexto {
+    background-color: #cccccc40;
+    border-color: slategray;
+    border-radius: 7px;
+    width: 100%;
+    padding: 15px;
+    border-width: 0px;
+}
