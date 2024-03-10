@@ -12,8 +12,12 @@ const Home = ({correoUsuario}) => {
     return (
         <div>
             <Navbar/>
-            <CardClub/>
-            <h2>Bienvenido: {correoUsuario} <button className="btn-primary" onClick={()=> signOut(auth)}>Logout</button></h2>
+            <h2>Bienvenido: {correoUsuario}</h2>
+            <div className="row">
+
+                <CardClub/>
+            </div>
+
         </div>
     )
 }
