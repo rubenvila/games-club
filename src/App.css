@@ -1,5 +1,7 @@
 .padre {
-    margin: 10px;
+    justify-content: center;
+    align-self: center;
+    margin-top: 100px;
     display: flex;
     align-items: center;
     height: 100%;
@@ -30,12 +32,21 @@
     padding: 15px;
     border-width: 0px;
     margin-bottom: 20px;
+}.btnform:hover {
+    transition: .1s;
+    transform: scale(1.01);
 }
 
 .texto {
+    margin-top: 3px;
+    margin-bottom: 20px;
+    text-align: center;
     font-size: 18px;
     color: slategray;
     font-family: Arial, Helvetica, sans-serif;
+}
+.texto:hover {
+    cursor: pointer;
 }
 
 .btnswitch {
@@ -45,4 +56,14 @@
     border-width: 0px;
     color: white;
     font-size: 16px;
+}.btnswitch:hover {
+    transition: .1s;
+    transform: scale(1.05);
+}
+
+.img_google {
+    width: 90px;
+} .img_google:hover {
+    transition: .1s;
+    transform: scale(1.05);
 }
