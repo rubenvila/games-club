@@ -3,14 +3,52 @@
 import React from "react";
 import appFirebase from "../credentials";
 import { getAuth, signOut } from "firebase/auth";
+
+import { getFirestore, collection, getDocs } from "firebase/firestore"; 
+import "firebase/firestore"; 
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; 
+
+
 const auth = getAuth(appFirebase)
+ 
+
+import Navbar from './Navbar'
+import CardClub from './CardClub'
 
 const Home = ({correoUsuario}) => {
+    const db = getFirestore(appFirebase); 
+ 
+    const [clublist, setClublist] = useState([]); 
+ 
+    const cargarClubes = async () => { 
+        let list = [] 
+   
+        const response = collection(db,"Clubes"); 
+        const date = await getDocs(response) 
+        const prueba = date.docs.map((doc) => list.push(doc.data())) 
+        setClublist(list) 
+    } 
+ 
+    useEffect(() => { 
+        cargarClubes() 
+    }, []) 
+
+
+
     return (
         <div>
-            <h2>Bienvenido: {correoUsuario} <button className="btn-primary" onClick={()=> signOut(auth)}>Logout</button></h2>
+            <Navbar/>
+            <h2>Bienvenido: {correoUsuario}</h2>
+            <div className="row">
+                {clublist.map(objeto =>
+                    <CardClub info = {objeto}/>
+                )}
+            </div>
+
         </div>
     )
 }
+
 
 export default Home
