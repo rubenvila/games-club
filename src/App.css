@@ -80,3 +80,25 @@
     height: 70px;
     color: white;
 }
+
+.navbar .btn{
+    border-color: #1EC4B8;;
+    color: #1EC4B8;
+}
+
+.navbar .btn:hover{
+    background-color: #1EC4B8;;
+    color: #fff
+}
+
+.navbar a:hover{
+    color: #1EC4B8;
+}
+
+.buscador{
+    margin-right: 0 !important;
+    margin-left: auto !important;
+}
+.buscador input.form-control {
+    width: 350px;
+}
