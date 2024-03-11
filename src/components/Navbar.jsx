@@ -69,7 +69,7 @@ const Navbar = () => {
                             <li><Link to="/Profile" ><a className="dropdown-item" href="#"><i className="fa-solid fa-user"></i> Mi perfil</a></Link></li>
 
                             <li><hr className="dropdown-divider"/></li>
-                            <li><a className="dropdown-item" href="#" onClick={()=> signOut(auth)} ><i className="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a></li>
+                            <li><Link to="/" ><a className="dropdown-item" href="#" onClick={()=> signOut(auth)} ><i className="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a></Link></li>
                         </ul>
                     </div>
                 
