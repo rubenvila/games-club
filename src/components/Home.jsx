@@ -15,6 +15,7 @@ const auth = getAuth(appFirebase)
 
 import Navbar from './Navbar'
 import CardClub from './CardClub'
+import DescriptionClub from './DescriptionClub'
 
 const Home = ({correoUsuario}) => {
     const db = getFirestore(appFirebase); 
@@ -46,6 +47,9 @@ const Home = ({correoUsuario}) => {
                         <CardClub info = {objeto}/>
                     )}
                 </div>
+                {clublist.map(objeto =>
+                        <DescriptionClub info = {objeto}/>
+                )}
             </div>
 
         </div>

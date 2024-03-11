@@ -22,7 +22,7 @@ const Navbar = () => {
                     <div className="d-flex justify-content-center buscador">
                         <form className="nav-item d-flex">
                             <input className="form-control me-2" type="search" placeholder="Buscar Juego" aria-label="Search"/>
-                            <button className="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button className="btn" type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </div>
                     <div className="nav-item dropdown ms-auto">
@@ -30,9 +30,9 @@ const Navbar = () => {
                             Nombre usuario
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a className="dropdown-item" href="#"><i class="fa-solid fa-user"></i> Mi perfil</a></li>
+                            <li><a className="dropdown-item" href="#"><i className="fa-solid fa-user"></i> Mi perfil</a></li>
                             <li><hr className="dropdown-divider"/></li>
-                            <li><a className="dropdown-item" href="#" onClick={()=> signOut(auth)} ><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={()=> signOut(auth)} ><i className="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a></li>
                         </ul>
                     </div>
                 

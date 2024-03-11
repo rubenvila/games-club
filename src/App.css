@@ -145,3 +145,29 @@ body{
     border-radius: 25px;
     color: #00172D;
 }
+
+
+/** DesciptionClub Modal **/
+.modal .modal-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal .modal-content{
+    background: #00172D;
+    border: #1EC4B8 2px solid;
+}
+
+.close-button-x{
+    display: flex;
+    justify-content: flex-end;
+}
+.close-button-x .close{
+    display: flex;
+    text-decoration: none;
+    color: #1EC4B8;
+    text-align: right;
+    font-size: 30px;
+}
