@@ -15,6 +15,7 @@ const auth = getAuth(appFirebase)
 
 import Navbar from './Navbar'
 import CardClub from './CardClub'
+import DescriptionClub from './DescriptionClub'
 
 const Home = ({correoUsuario}) => {
     const db = getFirestore(appFirebase); 
@@ -40,11 +41,16 @@ const Home = ({correoUsuario}) => {
     return (
         <div>
             <Navbar/>
-            <p>acá va algo</p>
-            <div className="row">
+            <h2>Bienvenido: {correoUsuario}</h2>
+            <div className="container home-general">
+                <div className="row justify-content-center">
+                    {clublist.map(objeto =>
+                        <CardClub info = {objeto}/>
+                    )}
+                </div>
                 {clublist.map(objeto =>
-                    // eslint-disable-next-line react/jsx-key
-                    <CardClub info = {objeto}/>
+                        <DescriptionClub info = {objeto}/>
+
                 )}
             </div>
 
