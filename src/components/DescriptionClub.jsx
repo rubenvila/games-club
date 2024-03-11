@@ -8,7 +8,7 @@ const auth = getAuth(appFirebase)
 const DescriptionClub = (info) => {
     return (
 
-        <div className="modal fade" id="exampleModalScrollable6" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle6" aria-hidden="true" data-backdrop="static" >
+        <div className="modal fade" id="ClubdeEstrategia" role="dialog" aria-labelledby="exampleModalScrollableTitle6" aria-hidden="true" data-backdrop="static" >
             <div className="modal-dialog modal-dialog-scrollable" role="document">
               <div className="modal-content container">
                    
