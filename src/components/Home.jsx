@@ -33,6 +33,7 @@ const Home = ({correoUsuario}) => {
  
     useEffect(() => { 
         cargarClubes() 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []) 
 
 
@@ -49,6 +50,7 @@ const Home = ({correoUsuario}) => {
                 </div>
                 {clublist.map(objeto =>
                         <DescriptionClub info = {objeto}/>
+
                 )}
             </div>
 
