@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
@@ -41,7 +42,7 @@ const Home = ({correoUsuario}) => {
     return (
         <div>
             <Navbar/>
-            <h2>Bienvenido: {correoUsuario}</h2>
+            <p><br /></p>
             <div className="container home-general">
                 <div className="row justify-content-center">
                     {clublist.map(objeto =>
