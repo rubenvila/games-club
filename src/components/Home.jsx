@@ -40,10 +40,12 @@ const Home = ({correoUsuario}) => {
         <div>
             <Navbar/>
             <h2>Bienvenido: {correoUsuario}</h2>
-            <div className="row">
-                {clublist.map(objeto =>
-                    <CardClub info = {objeto}/>
-                )}
+            <div className="container home-general">
+                <div className="row justify-content-center">
+                    {clublist.map(objeto =>
+                        <CardClub info = {objeto}/>
+                    )}
+                </div>
             </div>
 
         </div>

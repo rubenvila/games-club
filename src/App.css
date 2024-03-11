@@ -3,6 +3,10 @@ body{
     color: white;
 }
 
+.grid{
+    margin: auto;
+}
+
 .padre {
     justify-content: center;
     align-self: center;
