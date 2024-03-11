@@ -3,7 +3,13 @@ body{
     color: white;
 }
 
+.container {
+    justify-content: center;
+    align-items: center;
+}
+
 .padre {
+    border-radius: 2px;
     justify-content: center;
     align-self: center;
     margin-top: 100px;
@@ -14,7 +20,7 @@ body{
 }
 
 .cajatexto {
-    background-color: #cccccc40;
+    background-color: #5e5e5e40;
     border-color: slategray;
     border-radius: 7px;
     width: 100%;
