@@ -80,6 +80,61 @@ body{
 }
 
 
+/** Profile **/
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .profile-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .user-info {
+    text-align: left;
+    background-color: #09143077;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: #000000 0px 0px 7px;
+    border: 0px;
+  }
+
+.pu-title {
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.title-descript {
+    font-size: 27px;
+    color: rgb(156, 156, 156);
+}
+
+
+.answ-descript {
+    font-size: 19px;
+    color: white;
+
+}
+
+.cajatexto2 {
+    color: white;
+    font-size: 25px;
+    background-color: #5e5e5e40;
+    border-radius: 7px;
+    width: 100%;
+    padding: 6px;
+    border-width: 0px;
+    margin-bottom: 20px;
+}
+
+.edit-title {
+    color: #ffffff;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
 
 
 

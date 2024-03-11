@@ -4,13 +4,15 @@ import React, { useState } from "react";
 import appFirebase from '../credentials'
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { Link } from "react-router-dom"; 
-
-
+import { Link } from "react-router-dom";
+import { doc, setDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 const provider = new GoogleAuthProvider()
 
 const auth = getAuth(appFirebase)
+const db = getFirestore(appFirebase);
+
 
 const Login = () => {
 
@@ -34,7 +36,21 @@ const Login = () => {
 
         if (registrando) {
             try {
-            await createUserWithEmailAndPassword(auth, correo, contraseña)
+                await createUserWithEmailAndPassword(
+                    auth,
+                    userData.email,
+                    userData.password
+                  );
+
+                  const userRef = doc(db, `users/${auth.currentUser.uid}`);
+                  await setDoc(userRef, {
+                    nombre: userData.nombre,
+                    apellido: userData.apellido,
+                    username: userData.username,
+                    email: userData.email,
+                    uid: auth.currentUser.uid,
+                  });
+
         } catch (error) {
             swal("Asegúrese que la contraseña tenga más de 8 caracteres")
         }
@@ -43,36 +59,32 @@ const Login = () => {
             await signInWithEmailAndPassword(auth, correo, contraseña)
         } catch(error) {
             swal("Correo o contraseña erróneas")
-        }
-
-
-        }
-
+                    }
+                }
     }
 
-    function call_login_google() {
-        signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
-        
-    }
-
+    const call_login_google = async () => {
+        try {
+          const result = await signInWithPopup(auth, provider);
+    
+          // Handle successful Google login
+    
+          // Create user document in Firestore if it doesn't exist
+          const userRef = doc(db, `users/${result.user.uid}`);
+          const docSnap = await setDoc(userRef);
+          if (!docSnap.exists()) {
+            await setDoc(userRef, {
+              nombre: result.user.displayName,
+              apellido: '',
+              username: result.user.displayName,
+              email: result.user.email,
+              uid: result.user.uid,
+            });
+          }
+        } catch (error) {
+          // Handle errors during Google login
+        }
+      };
 
     return (
         <div className="container">
@@ -146,4 +158,3 @@ const Login = () => {
     };
     
     export default Login;
-    

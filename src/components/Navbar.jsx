@@ -1,13 +1,46 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import appFirebase from "../credentials";
-import { getAuth, signOut } from "firebase/auth";
-const auth = getAuth(appFirebase)
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import { getFirestore,doc } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { getDoc } from "firebase/firestore";
 
-
+const auth = getAuth(appFirebase);
+const db = getFirestore(appFirebase);
 
 const Navbar = () => {
+    const [user, setUser] = useState(null);
+    const [userData, setUserData] = useState(null); // Add state for user data
+  
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (authenticatedUser) => {
+        if (authenticatedUser) {
+          // Fetch user data from Firestore
+          const userRef = doc(db, `users/${authenticatedUser.uid}`);
+          getDoc(userRef)
+            .then((docSnap) => {
+              const userData = docSnap.exists() ? docSnap.data() : null;
+              setUserData(userData); // Update user data state
+            })
+            .catch((error) => {
+              console.error("Error fetching user data:", error);
+            });
+  
+          const fullName = authenticatedUser.nombre
+            ? `${authenticatedUser.nombre} ${authenticatedUser.apellido}`
+            : authenticatedUser.email;
+          setUser(fullName);
+        } else {
+          setUser(null);
+          setUserData(null); // Clear user data when logged out
+        }
+      });
+  
+      return unsubscribe;
+    }, [auth, db]);
+
     return (
 
         <nav className="navbar navbar-expand-lg">
@@ -29,7 +62,7 @@ const Navbar = () => {
                     </div>
                     <div className="nav-item dropdown ms-auto">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Nombre usuario
+                        {userData ? `${userData.nombre} ${userData.apellido}` : user || "Nombre usuario"}
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                             <li><Link to="/Profile" ><a className="dropdown-item" href="#"><i className="fa-solid fa-user"></i> Mi perfil</a></Link></li>

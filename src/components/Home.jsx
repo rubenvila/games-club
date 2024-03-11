@@ -40,7 +40,7 @@ const Home = ({correoUsuario}) => {
     return (
         <div>
             <Navbar/>
-            <h2>Bienvenido: {correoUsuario}</h2>
+            <p>acá va algo</p>
             <div className="row">
                 {clublist.map(objeto =>
                     // eslint-disable-next-line react/jsx-key
