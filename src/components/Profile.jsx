@@ -9,13 +9,14 @@ import Navbar from './Navbar';
 
 const Profile = () => {
   const auth = getAuth(appFirebase);
-  const [userData, setUserData] = useState({});
-  const [editing, setEditing] = useState(false);
-  const [formData, setFormData] = useState({
+  const [userData, setUserData] = useState({
     nombre: '',
     apellido: '',
     username: '',
     email: '',
+  });
+  const [editing, setEditing] = useState(false);
+  const [formData, setFormData] = useState({
   });
   const db = getFirestore(appFirebase);
 
@@ -32,7 +33,7 @@ const Profile = () => {
           apellido: data.apellido,
           username: data.username,
           email: data.email,
-        }); // Initialize formData
+        });
       } else {
         console.error('User data not found');
       }

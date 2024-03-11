@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import appFirebase from "../credentials";
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 const auth = getAuth(appFirebase)
 
 

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import appFirebase from "../credentials";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { getFirestore,doc } from "firebase/firestore";
@@ -12,17 +12,17 @@ const db = getFirestore(appFirebase);
 
 const Navbar = () => {
     const [user, setUser] = useState(null);
-    const [userData, setUserData] = useState(null); // Add state for user data
+    const [userData, setUserData] = useState(null);
   
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (authenticatedUser) => {
         if (authenticatedUser) {
-          // Fetch user data from Firestore
-          const userRef = doc(db, `users/${authenticatedUser.uid}`);
+
+            const userRef = doc(db, `users/${authenticatedUser.uid}`);
           getDoc(userRef)
             .then((docSnap) => {
               const userData = docSnap.exists() ? docSnap.data() : null;
-              setUserData(userData); // Update user data state
+              setUserData(userData);
             })
             .catch((error) => {
               console.error("Error fetching user data:", error);
@@ -34,7 +34,7 @@ const Navbar = () => {
           setUser(fullName);
         } else {
           setUser(null);
-          setUserData(null); // Clear user data when logged out
+          setUserData(null);
         }
       });
   
