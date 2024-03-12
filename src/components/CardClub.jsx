@@ -9,7 +9,7 @@ import swal from "sweetalert";
 const CardClub = (info) => {
 
     const mostrarDescrip = () => {
-        swal(info.info.descripcion)
+        swal(info.info.nombre, info.info.descripcion)
     }
 
     return (
