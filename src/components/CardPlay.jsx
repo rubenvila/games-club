@@ -14,8 +14,8 @@ const CardPlay = (info) => {
             <div className="card-body text-center">
 
                 <h4 className="">{info.info.titulo}</h4>
-                <a className="btn col-md-12" data-bs-toggle="modal" data-bs-target="#ClubdeEstrategia"><i className="fa-solid fa-eye "></i>  Leer más</a>
-
+                <h5 className="">{info.info.genero}</h5>
+                <p className="">{info.info.descripcion}</p>
                 <a href="#" className="btn col-md-12"><i className="fa-regular fa-heart"></i> Favorito</a>
             </div>
         </div>
