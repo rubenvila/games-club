@@ -3,12 +3,11 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import appFirebase from "../credentials";
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 import { getFirestore, collection, getDocs } from "firebase/firestore"; 
 import "firebase/firestore"; 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; 
 
 
 const auth = getAuth(appFirebase)

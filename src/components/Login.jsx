@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import appFirebase from '../credentials'
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { Link } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 
@@ -52,7 +51,7 @@ const Login = () => {
                   });
 
         } catch (error) {
-            swal("Asegúrese que la contraseña tenga más de 8 caracteres")
+            swal("Datos incorrectos. Intente nuevamente")
         }
         } else {
             try {
@@ -67,9 +66,10 @@ const Login = () => {
         try {
           const result = await signInWithPopup(auth, provider);
     
-          // Handle successful Google login
-    
-          // Create user document in Firestore if it doesn't exist
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;   
+          const user = result.user;
+ 
           const userRef = doc(db, `users/${result.user.uid}`);
           const docSnap = await setDoc(userRef);
           if (!docSnap.exists()) {
@@ -82,9 +82,13 @@ const Login = () => {
             });
           }
         } catch (error) {
-          // Handle errors during Google login
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+        
         }
-      };
+      }
 
     return (
         <div className="container">
