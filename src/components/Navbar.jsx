@@ -52,7 +52,10 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarScroll">
                     
                     <div className="nav-item">
-                        <Link to="/Home" className="nav-link active" aria-current="page" href="#">Home</Link>
+                        <Link to="/Home" className="nav-link active" aria-current="page" href="#">Home </Link>
+                    </div>
+                    <div className="nav-item">
+                        <Link to="/Plays" className="nav-link active" aria-current="page" href="#"> Juegos</Link>
                     </div>
                     <div className="d-flex justify-content-center buscador">
                         <form className="nav-item d-flex">

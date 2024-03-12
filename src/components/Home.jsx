@@ -53,9 +53,6 @@ const Home = ({correoUsuario}) => {
         <div>
             <Navbar/>
             <p><br /></p>
-            {playlist.map(objetop =>
-                <CardPlay info = {objetop}/>
-            )}
             <div className="container home-general">
                 <div className="row justify-content-center">
                     {clublist.map(objeto =>
@@ -63,7 +60,7 @@ const Home = ({correoUsuario}) => {
                     )}
                 </div>
                 {clublist.map(objeto =>
-                        <DescriptionClub info = {objeto}/>
+                        <DescriptionClub info = {objeto} infoPlay={playlist}/>
 
                 )}
             </div>

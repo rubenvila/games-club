@@ -16,7 +16,7 @@ const CardPlay = (info) => {
                 <h4 className="">{info.info.titulo}</h4>
                 <a className="btn col-md-12" data-bs-toggle="modal" data-bs-target="#ClubdeEstrategia"><i className="fa-solid fa-eye "></i>  Leer más</a>
 
-                <a href="#" className="btn col-md-12"><i className="fa-solid fa-plus"></i> Subscribirse</a>
+                <a href="#" className="btn col-md-12"><i className="fa-regular fa-heart"></i> Favorito</a>
             </div>
         </div>
 
