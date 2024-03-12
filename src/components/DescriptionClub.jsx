@@ -2,11 +2,14 @@
 import React from "react";
 import appFirebase from "../credentials";
 import { getAuth } from "firebase/auth";
+
+
 const auth = getAuth(appFirebase)
 
 
-
 const DescriptionClub = (info, infoPlay) => {
+
+
     return (
 
         <div className="modal fade" id="ClubdeEstrategia" role="dialog" aria-labelledby="exampleModalScrollableTitle6" aria-hidden="true" data-backdrop="static" >
@@ -30,7 +33,6 @@ const DescriptionClub = (info, infoPlay) => {
               </div>
             </div>
         </div>
-
     )
 }
 

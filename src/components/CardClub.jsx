@@ -3,10 +3,15 @@ import React from "react";
 import appFirebase from "../credentials";
 import { getAuth } from "firebase/auth";
 const auth = getAuth(appFirebase)
-
+import swal from "sweetalert";
 
 
 const CardClub = (info) => {
+
+    const mostrarDescrip = () => {
+        swal(info.info.descripcion)
+    }
+
     return (
 
         <div className="card card-club me-3 ms-3 mb-3">
@@ -14,8 +19,7 @@ const CardClub = (info) => {
             <div className="card-body text-center">
 
                 <h4 className="">{info.info.nombre}</h4>
-                <a className="btn col-md-12" data-bs-toggle="modal" data-bs-target="#ClubdeEstrategia"><i className="fa-solid fa-eye "></i>  Leer más</a>
-
+                <button className="btn-descrip" onClick={mostrarDescrip}>Leer más</button>
                 <a href="#" className="btn col-md-12"><i className="fa-solid fa-plus"></i> Subscribirse</a>
             </div>
         </div>

@@ -34,8 +34,6 @@ const Profile = () => {
           username: data.username,
           email: data.email,
         });
-      } else {
-        console.error('User data not found');
       }
     };
 
