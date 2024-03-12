@@ -15,7 +15,8 @@ body{
     border-radius: 2px;
     justify-content: center;
     align-self: center;
-    margin-top: 100px;
+    margin: auto;
+    margin-top: 150px;
     display: flex;
     align-items: center;
     height: 100%;
@@ -143,6 +144,11 @@ body{
     color: white;
 }
 
+.navbar-nav{
+    text-decoration: none;
+    color:white;
+}
+
 .navbar .btn{
     border-color: #1EC4B8;;
     color: #1EC4B8;
@@ -157,12 +163,30 @@ body{
     color: #1EC4B8;
 }
 
+.container-fluid{
+    background: #00172D;
+    
+    z-index: 10;
+}
+.dropdown-toggle{
+    padding-bottom: 5%;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: white;
+}
+
+.navbar-toggler{
+    border-color: #1EC4B8;
+}
+
 .buscador{
     margin-right: 0 !important;
     margin-left: auto !important;
+    margin-bottom: 5%;
 }
 .buscador input.form-control {
-    width: 350px;
+    width: 340px;
 }
 
 

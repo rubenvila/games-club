@@ -42,7 +42,6 @@ const Navbar = () => {
     }, [auth, db]);
 
     return (
-
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">LOGO</a>
@@ -50,19 +49,14 @@ const Navbar = () => {
                 <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarScroll">
-                    
-                    <div className="nav-item">
-                        <Link to="/Home" className="nav-link active" aria-current="page" href="#">Home </Link>
-                    </div>
-                    <div className="nav-item">
-                        <Link to="/Plays" className="nav-link active" aria-current="page" href="#"> Juegos</Link>
-                    </div>
-                    <div className="d-flex justify-content-center buscador">
-                        <form className="nav-item d-flex">
-                            <input className="form-control me-2" type="search" placeholder="Buscar Juego" aria-label="Search"/>
-                            <button className="btn" type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
-                    </div>
+                    <ul className="navbar-nav">
+                      <li className="nav-item">
+                          <Link to="/Home" className="nav-link active" aria-current="page" href="#">Home </Link>
+                      </li>
+                      <li className="nav-item">
+                          <Link to="/Plays" className="nav-link active" aria-current="page" href="#"> Juegos</Link>
+                      </li>
+                    </ul>
                     <div className="nav-item dropdown ms-auto">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {userData ? `${userData.nombre} ${userData.apellido}` : user || "Nombre usuario"}
@@ -79,7 +73,6 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
-
     )
 }
 

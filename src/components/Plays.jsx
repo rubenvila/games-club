@@ -70,7 +70,6 @@ const Plays = () => {
                     value={busqueda}
                     onChange={handleChange}
                     />
-                    <button className="btn" type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
 

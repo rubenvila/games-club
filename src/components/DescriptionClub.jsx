@@ -26,7 +26,6 @@ const DescriptionClub = (info, infoPlay) => {
                         {info.info.descripcion}
                     </p>
                     <div className="galery-game row">
-                        {console.log(infoPlay)}
                     </div>
                 </div>
                 
