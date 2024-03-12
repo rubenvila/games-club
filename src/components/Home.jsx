@@ -16,23 +16,34 @@ const auth = getAuth(appFirebase)
 import Navbar from './Navbar'
 import CardClub from './CardClub'
 import DescriptionClub from './DescriptionClub'
+import CardPlay from './CardPlay'
 
 const Home = ({correoUsuario}) => {
     const db = getFirestore(appFirebase); 
  
     const [clublist, setClublist] = useState([]); 
+    const [playlist, setPlaylist] = useState([]); 
+
  
-    const cargarClubes = async () => { 
+    const cargar = async () => { 
         let list = [] 
    
         const response = collection(db,"Clubes"); 
         const date = await getDocs(response) 
         const prueba = date.docs.map((doc) => list.push(doc.data())) 
         setClublist(list) 
+
+
+        let list_Play = [] 
+   
+        const response_Play = collection(db,"Videojuegos"); 
+        const date_Play = await getDocs(response_Play) 
+        const prueba_Play = date_Play.docs.map((doc) => list_Play.push(doc.data())) 
+        setPlaylist(list_Play) 
     } 
  
     useEffect(() => { 
-        cargarClubes() 
+        cargar() 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []) 
 
@@ -42,6 +53,9 @@ const Home = ({correoUsuario}) => {
         <div>
             <Navbar/>
             <p><br /></p>
+            {playlist.map(objetop =>
+                <CardPlay info = {objetop}/>
+            )}
             <div className="container home-general">
                 <div className="row justify-content-center">
                     {clublist.map(objeto =>
